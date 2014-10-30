@@ -330,10 +330,10 @@ void AndroidScreenCast::mouseReleaseEvent(QMouseEvent *event)
 {
     QString cmd;
     if (isSwipe){
-        cmd.sprintf("adb shell input swipe %d %d %d %d",startX*480/width(),startY*800/height(), event->x()*480/width(), event->y()*800/height());
+        cmd.sprintf("adb shell input swipe %d %d %d %d",startX*imageWidth/width(),startY*imageHeight/height(), event->x()*imageWidth/width(), event->y()*imageHeight/height());
         isSwipe=false;
     }else{
-        cmd.sprintf("adb shell input tap %d %d",event->x()*480/width(), event->y()*800/height());
+        cmd.sprintf("adb shell input tap %d %d",event->x()*imageWidth/width(), event->y()*imageHeight/height());
     }
     execute(cmd);
 }
